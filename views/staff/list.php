@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -13,9 +13,6 @@ use yii\helpers\Url;
     
 <?php if($staff): ?>   
 <h2>Сотрудники</h2>
-<?php else: ?>
-<h2>У вас еще нет сотрудников.</h2>
-<?php endif; ?>
 
 <?php foreach($staff as $st): ?>
     <pre>
@@ -32,3 +29,7 @@ use yii\helpers\Url;
 <?= Html::a('Удалить', Url::to(["staff/erase/$st->id"])) ?>
     </pre>
 <?php endforeach; ?>
+<?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
+<?php else: ?>
+<h2>У вас еще нет сотрудников.</h2>
+<?php endif; ?>

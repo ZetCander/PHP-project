@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace app\controllers;
 
@@ -53,9 +53,12 @@ class ProjController extends GeneralController{
         
         $this->view->title = 'Список проектов';
         
-        $project = ProjectForm::find()->orderBy(['pname' => SORT_ASC])->all();   
+        $query = ProjectForm::find()->orderBy(['pname' => SORT_ASC]);   
+        $pages = new \yii\data\Pagination(['totalCount' => $query->count(), 'pageSize' => 2]);
+        $project = $query->offset($pages->offset)->limit($pages->limit)->all();
         
-        return $this->render('list', compact(['project']));
+        
+        return $this->render('list', compact(['project', 'pages']));
     }
         
     public function actionShow(){

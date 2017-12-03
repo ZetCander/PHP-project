@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace app\controllers;
 
@@ -53,9 +53,11 @@ class StaffController extends GeneralController{
         
         $this->view->title = 'Список сотрудников';
         
-        $staff = StaffForm::find()->orderBy(['surname' => SORT_ASC])->all();   
+        $query = StaffForm::find()->orderBy(['surname' => SORT_ASC]);
+        $pages = new \yii\data\Pagination(['totalCount' => $query->count(), 'pageSize' => 2]);
+        $staff = $query->offset($pages->offset)->limit($pages->limit)->all();
         
-        return $this->render('list', compact(['staff']));
+        return $this->render('list', compact(['pages', 'staff']));
     }
         
     public function actionShow(){

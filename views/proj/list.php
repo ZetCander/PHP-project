@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -13,9 +13,6 @@ use yii\helpers\Url;
     
 <?php if($project): ?>   
 <h2>Проекты</h2>
-<?php else: ?>
-<h2>Проектов ещё нет.</h2>
-<?php endif; ?>
 
 <?php foreach($project as $pr): ?>
     <pre>
@@ -28,3 +25,7 @@ use yii\helpers\Url;
 <?= Html::a('Удалить', Url::to(["/proj/erase/$pr->id"])) ?>
     </pre>
 <?php endforeach; ?>
+<?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
+<?php else: ?>
+<h2>Проектов ещё нет.</h2>
+<?php endif; ?>
