@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=staffbase',
-    'username' => 'root',
-    'password' => '',
-    'charset' => 'utf8',
+     'class' => 'yii\db\Connection',
+     'dsn' => 'mysql:host=localhost;dbname=n90933wx_sbase',
+     'username' => 'n90933wx_sbase',
+     'password' => '',
+     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,
